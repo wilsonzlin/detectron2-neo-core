@@ -16,8 +16,6 @@ def get_extensions():
     is_rocm_pytorch = (
         True if ((torch.version.hip is not None) and (ROCM_HOME is not None)) else False
     )
-    if is_rocm_pytorch:
-        assert torch_ver >= [1, 8], "ROCM support requires PyTorch >= 1.8!"
 
     # common code between cuda and rocm platforms, for hipify version [1,0,0] and later.
     source_cuda = glob.glob(path.join(extensions_dir, "**", "*.cu")) + glob.glob(
@@ -49,12 +47,6 @@ def get_extensions():
             define_macros += [("WITH_HIP", None)]
             extra_compile_args["nvcc"] = []
 
-        if torch_ver < [1, 7]:
-            # supported by https://github.com/pytorch/pytorch/pull/43931
-            CC = os.environ.get("CC", None)
-            if CC is not None:
-                extra_compile_args["nvcc"].append("-ccbin={}".format(CC))
-
     include_dirs = [extensions_dir]
 
     ext_modules = [
@@ -72,5 +64,5 @@ def get_extensions():
 
 def build(setup_kwargs):
     setup_kwargs.update(
-        {"ext_modules": get_extensions(), "cmdclass": {"build_ext": ExtBuilder}}
+        {"ext_modules": get_extensions(), "cmdclass": {"build_ext": torch.utils.cpp_extension.BuildExtension}}
     )
