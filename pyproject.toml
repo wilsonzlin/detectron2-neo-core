@@ -7,6 +7,9 @@ authors = ["FAIR", "Wilson Lin <code@wilsonl.in>"]
 license = "Apache-2.0"
 readme = "README.md"
 
+[tool.poetry]
+build = "build.py"
+
 [tool.poetry.dependencies]
 python = "^3.8"
 pillow = ">=7.1"
