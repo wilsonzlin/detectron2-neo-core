@@ -1,8 +1,9 @@
 [tool.poetry]
 name = "detectron2"
 version = "0.7.0"
-description = "Fork of Detectron2"
-authors = ["Wilson Lin <code@wilsonl.in>"]
+description = "Modernised fork of Detectron2"
+homepage = "https://github.com/wilsonzlin/detectron2"
+authors = ["FAIR", "Wilson Lin <code@wilsonl.in>"]
 license = "Apache-2.0"
 readme = "README.md"
 
