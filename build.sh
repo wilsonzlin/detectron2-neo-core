@@ -7,9 +7,17 @@ pushd "$(dirname "$0")" &>/dev/null
 repo="$PWD"
 rm -rf build dist
 
-cuda="$CUDA_VERSION" # Should be `x.y`, not `x.y.z`.
-torch="$TORCH_VERSION" # Should be exact i.e. `x.y.z`.
-python="$PYTHON_VERSION" # Should be `x.y`, not `x.y.z`.
+# Any versions other than these defaults are **untested**.
+cuda="${CUDA_VERSION:-11.8}" # Should be `x.y`, not `x.y.z`.
+torch="${TORCH_VERSION:-2.0.0}" # Should be exact i.e. `x.y.z`.
+python="${PYTHON_VERSION:-3.11}" # Should be `x.y`, not `x.y.z`.
+
+# We chose Ubuntu 18.04 because:
+# - It's old, so built binaries will be more compatible.
+# - The *deadsnakes* PPA is available for Ubuntu, which provides a lot of Python builds.
+# - *deadsnakes* has the most Python version builds for 18.04.
+
+# Until `poetry build` "just works", we'll resort to generating a setup.py and using `wheel` instead.
 
 pushd "$(mktemp -d)"
 cat <<EOD > Dockerfile

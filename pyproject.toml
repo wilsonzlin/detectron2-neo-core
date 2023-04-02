@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "detectron2"
+name = "detectron2-neo"
 version = "0.7.0"
 description = "Modernised fork of Detectron2"
 homepage = "https://github.com/wilsonzlin/detectron2"
@@ -7,6 +7,9 @@ authors = ["FAIR", "Wilson Lin <code@wilsonl.in>"]
 license = "Apache-2.0"
 readme = "README.md"
 build = "build.py"
+packages = [
+  {include = "detectron2", from = "src"}
+]
 
 [tool.poetry.dependencies]
 cloudpickle = "^2.2.1"
@@ -27,6 +30,12 @@ tqdm = ">4.29.0"
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
 torch = ">=1.8" # TODO This currently does nothing, as Poetry doesn't install it before running build.py.
+
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu118"
+default = false
+secondary = false
 
 # TODO This currently does nothing, as Poetry doesn't support building non-source formats yet.
 [build-system]
