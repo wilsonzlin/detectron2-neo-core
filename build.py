@@ -1,21 +1,23 @@
+import site
+import sys
+sys.path.append(f"/usr/local/lib/python{'.'.join(str(v) for v in sys.version_info[:2])}/dist-packages")
+import glob
+import os
 import torch
-from torch.utils.cpp_extension import CUDA_HOME, CppExtension, CUDAExtension
+from os import path
+from torch.utils.cpp_extension import CUDA_HOME, CppExtension, CUDAExtension, ROCM_HOME
 
 torch_ver = [int(x) for x in torch.__version__.split(".")[:2]]
 assert torch_ver >= [1, 8], "Requires PyTorch >= 1.8"
 
 def get_extensions():
     this_dir = path.dirname(path.abspath(__file__))
-    extensions_dir = path.join(this_dir, "detectron2", "layers", "csrc")
+    extensions_dir = path.join(this_dir, "src", "detectron2", "layers", "csrc")
 
     main_source = path.join(extensions_dir, "vision.cpp")
     sources = glob.glob(path.join(extensions_dir, "**", "*.cpp"))
 
-    from torch.utils.cpp_extension import ROCM_HOME
-
-    is_rocm_pytorch = (
-        True if ((torch.version.hip is not None) and (ROCM_HOME is not None)) else False
-    )
+    is_rocm_pytorch = (torch.version.hip is not None) and (ROCM_HOME is not None)
 
     # common code between cuda and rocm platforms, for hipify version [1,0,0] and later.
     source_cuda = glob.glob(path.join(extensions_dir, "**", "*.cu")) + glob.glob(

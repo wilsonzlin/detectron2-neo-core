@@ -1,2 +1,9 @@
-/dist/
+__pycache__/
+*.egg-info/
 /poetry.lock
+/setup.py
+
+# Used by setup.py.
+/build/
+# TODO Used by Poetry, but we currently don't use Poetry to build (see `pyproject.toml`).
+/dist/
