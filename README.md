@@ -19,7 +19,7 @@ boxes = Boxes()
 
 ## Getting started
 
-- You do not need to have CUDA Toolkit or cuDNN installed, and any existing installations (including different versions) won't conflict with PyTorch, as it comes with its own copy. [^1] [^2] [^3]
+- You do not need to have CUDA Toolkit or cuDNN installed, and any existing installations (including different versions) won't conflict with PyTorch, as it comes with its own copy.[^1] [^2] [^3]
 - Install the wheel at https://static.wilsonl.in/detectron2-neo/detectron2_neo-0.7.0-cp311-cp311-linux_x86_64.whl.
 - This package is not published to PyPI as that would require building for manylinux, which is more difficult with CUDA native extensions.
 
@@ -33,6 +33,6 @@ boxes = Boxes()
 - Dependencies have been updated and pruned.
 - The source tree has moved to `src` to use the [src layout](https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/).
 
-[^1] https://discuss.pytorch.org/t/how-to-check-if-torch-uses-cudnn/21933/5
-[^2] https://discuss.pytorch.org/t/is-cuda-back-compatible/76872/4
-[^3] https://discuss.pytorch.org/t/would-pytorch-for-cuda-11-6-work-when-cuda-is-actually-12-0/169569/2
+[^1]: https://discuss.pytorch.org/t/how-to-check-if-torch-uses-cudnn/21933/5
+[^2]: https://discuss.pytorch.org/t/is-cuda-back-compatible/76872/4
+[^3]: https://discuss.pytorch.org/t/would-pytorch-for-cuda-11-6-work-when-cuda-is-actually-12-0/169569/2
