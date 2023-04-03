@@ -1,0 +1,7 @@
+# If we don't ignore everything, we'll have to rebuild (including expensive CUDA compilations) for reasons like changing the README or .gitignore.
+
+*
+
+!/build.py
+!/pyproject.toml
+!/src/**

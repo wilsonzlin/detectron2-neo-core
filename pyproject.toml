@@ -5,7 +5,6 @@ description = "Modernised fork of Detectron2"
 homepage = "https://github.com/wilsonzlin/detectron2"
 authors = ["FAIR", "Wilson Lin <code@wilsonl.in>"]
 license = "Apache-2.0"
-readme = "README.md"
 build = "build.py"
 packages = [
   {include = "detectron2", from = "src"}
