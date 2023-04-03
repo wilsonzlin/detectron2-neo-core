@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "detectron2-neo"
+name = "detectron2-neo-core"
 version = "0.7.0"
-description = "Modernised fork of Detectron2"
+description = "Modernised fork of Detectron2 core"
 homepage = "https://github.com/wilsonzlin/detectron2"
 authors = ["FAIR", "Wilson Lin <code@wilsonl.in>"]
 license = "Apache-2.0"
