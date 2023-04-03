@@ -13,7 +13,4 @@ from .catalog import DatasetCatalog, MetadataCatalog, Metadata
 from .common import DatasetFromList, MapDataset, ToIterableDataset
 from .dataset_mapper import DatasetMapper
 
-# ensure the builtin datasets are registered
-from . import datasets, samplers  # isort:skip
-
 __all__ = [k for k in globals().keys() if not k.startswith("_")]

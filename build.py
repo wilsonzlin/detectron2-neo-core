@@ -1,6 +1,9 @@
-import site
 import sys
-sys.path.append(f"/usr/local/lib/python{'.'.join(str(v) for v in sys.version_info[:2])}/dist-packages")
+# Poetry won't load dev deps while calling build.py, so we manually load it from default pip user and system paths. Note that this means `torch` should be installed outside of this repo as well.
+# This only affects build process, and has no impact on output binary or runtime.
+sys.path += (
+  f"/usr/local/lib/python{'.'.join(str(v) for v in sys.version_info[:2])}/dist-packages",
+)
 import glob
 import os
 import torch

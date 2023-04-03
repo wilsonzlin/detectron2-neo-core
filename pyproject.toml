@@ -27,5 +27,5 @@ tqdm = ">4.29.0"
 
 # TODO This currently does nothing, as Poetry doesn't support building non-source formats yet.
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core", "torch==2.0.0"]
 build-backend = "poetry.core.masonry.api"
